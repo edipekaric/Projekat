@@ -5,7 +5,8 @@ import type {
   PasswordGenerateResponse,
 } from '../types';
 
-const API_BASE = 'http://localhost:8088/api/password';
+const API_BASE =
+  `${import.meta.env.VITE_API_BASE ?? 'http://localhost:8088'}/api/password`;
 
 export async function checkPassword(
   request: PasswordCheckRequest,
