@@ -17,7 +17,8 @@ public class CorsConfig {
 						.allowedOriginPatterns(
 								"http://localhost:*",
 								"http://127.0.0.1:*",
-								"https://*.github.io")
+								"https://*.github.io",
+								"https://*.up.railway.app")
 						.allowedMethods("GET", "POST", "OPTIONS")
 						.allowedHeaders("*");
 			}

@@ -5,8 +5,22 @@ import type {
   PasswordGenerateResponse,
 } from '../types';
 
-const API_BASE =
-  `${import.meta.env.VITE_API_BASE ?? 'http://localhost:8088'}/api/password`;
+declare global {
+  interface Window {
+    __ENV__?: { VITE_API_BASE?: string };
+  }
+}
+
+function resolveApiBase(): string {
+  const raw =
+    window.__ENV__?.VITE_API_BASE?.trim() ||
+    import.meta.env.VITE_API_BASE?.trim() ||
+    'http://localhost:8088';
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  return `${withProtocol.replace(/\/$/, '')}/api/password`;
+}
+
+const API_BASE = resolveApiBase();
 
 export async function checkPassword(
   request: PasswordCheckRequest,
