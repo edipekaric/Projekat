@@ -23,6 +23,13 @@ Ponovo pokreni workflow (Actions → Deploy frontend → Run workflow).
 
 Lokalno radi bez varijable (default `localhost:8088`).
 
+## Railway FE
+
+- Root: `frontend`
+- Build: `npm run build` (generiše `dist/env.js` iz `VITE_API_BASE`)
+- Start: `npm run start`
+- Variable: `VITE_API_BASE` = BE URL (npr. `https://projekat-production-5451.up.railway.app`)
+
 ## Backend
 ```bash
 cd backend

@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "start": "node scripts/write-env.cjs && npx serve -s dist -l ${PORT:-3000}",
+    "build": "tsc -b && vite build && node scripts/write-env.cjs",
+    "start": "node scripts/write-env.cjs && serve -s dist -l ${PORT:-3000}",
     "lint": "eslint .",
     "preview": "vite preview"
   },
